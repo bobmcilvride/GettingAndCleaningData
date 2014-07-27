@@ -1,8 +1,8 @@
 Read Me
 ===========================================
-Coursera Data Science Specialization  
-Getting & Cleaning Data  
-Course Programming Assignment  
+Coursera Data Science Specialization
+Getting & Cleaning Data
+Course Programming Assignment
 July 27, 2014
 
 Introduction
@@ -26,7 +26,7 @@ The script uses the qdap package for the lookup() function reshape2 package for 
 
 ```{r}
 library(qdap)
-library(reshape2)
+lhape2)
 ```
 
 Set paths to training and test datasets (presumes the UCI HAR Dataset folder is in the working directory)
@@ -53,7 +53,7 @@ df.features[2,] <- gsub("^angley","angle_Y_",df.features[2,],ignore.case=T)
 df.features[2,] <- gsub("^anglez","angle_Z_",df.features[2,],ignore.case=T)
 ```
     
-Assemble the training and test data sets first, including the cleaned up labels.  This results in two identically structure data sets, one caontaining the test data, and the other containing the training data.
+Assemble the training and test data sets first, including the cleaned up labels
 
 ```{r}
 # read the training datasets
@@ -133,7 +133,6 @@ write.csv(df.m_sub.tidy, "./UCI_HAR_Tidy.txt", na = "NA", row.names=FALSE)
 
 Session Information
 -------------------
-
 R version 3.1.0 (2014-04-10)
 Platform: x86_64-apple-darwin13.1.0 (64-bit)
 
