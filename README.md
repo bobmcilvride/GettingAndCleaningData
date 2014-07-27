@@ -1,6 +1,5 @@
 Read Me
 ===========================================
-
 Coursera Data Science Specialization
 Getting & Cleaning Data
 Course Programming Assignment
