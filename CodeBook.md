@@ -1,6 +1,9 @@
 Code Book
-Getting & Cleaning Data - Course Assignment
 ========================================================
+Coursera Data Science Specialization
+Getting & Cleaning Data
+Course Programming Assignment
+July 27, 2014
 
 This code book describes the UCI HAR data sets and variables, as well as the cleansing and transformations performed on the data sets to create, cleansed, filter, merged and tidy data sets.  Please see the readme.Rmd file for description of the experiment and processing.
 
