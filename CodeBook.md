@@ -1,21 +1,21 @@
 Code Book
 ========================================================
-Coursera Data Science Specialization
+Coursera Data Science Specialization 
 Getting & Cleaning Data
 Course Programming Assignment
 July 27, 2014
 
 This code book describes the UCI HAR data sets and variables, as well as the cleansing and transformations performed on the data sets to create, cleansed, filter, merged and tidy data sets.  Please see the readme.Rmd file for description of the experiment and processing.
 
-Data wasread from the following files:
+Data was read from the following files:
 
--train/subject_train.txt    Contains the ids of the subjects who participated in the study
--train/X_train.txt          Contains 565 variables related to one study observation    
--train/Y_train.txt          Contains the ids of which tasks were performed for each observation
+- train/subject_train.txt    Contains the ids of the subjects who participated in the study
+- train/X_train.txt          Contains 565 variables related to one study observation    
+- train/Y_train.txt          Contains the ids of which tasks were performed for each observation
 
--test/subject_test.txt      Contents are the same as corresponding files above.
--test/X_test.txt
--test/Y_test.txt
+- test/subject_test.txt      Contents are the same as corresponding files above.
+- test/X_test.txt
+- test/Y_test.txt
 
 Data from the Intertial Signals folders for test and traing were not used.
 
@@ -161,7 +161,7 @@ The key processing and transformations of data for this assignment include:
 - Combine the test/subject_test.txt, test/X_test.txt, and test/Y_test.txt to create a single merged training file
 - Replace the merged column names with descriptive, cleansed column names 
 
-```
+```{r}
 # Merge the test datasets into a data frame 
 df.m_test <- cbind(df.subj_test, df.y_test, df.x_test)
     
@@ -177,7 +177,7 @@ names(df.m_test) <- c("subject_id", "activity_id", df.features[2,])
 
 - Merge the test and training datasets, and replace the activity_id with activity_name
 
-```
+```{r}
 # Combine the test and training data frames into one
 df.m_all <- rbind(df.m_test, df.m_train)
     
@@ -191,7 +191,7 @@ colnames(df.m_all)[colnames(df.m_all) == "activity_id"] <- "activity_name"
 
 - Subset the merged data set to include only mean and standard deviations
 
-```
+```{r}
 # Subset the key columns and the mean and std measurements
 df.m_sub <- df.m_all[,c(c("subject_id", "activity_name"),
                     grep("mean|std", names(df.m_all), ignore.case=TRUE, value=TRUE) )]    
@@ -199,7 +199,7 @@ df.m_sub <- df.m_all[,c(c("subject_id", "activity_name"),
 
 - And finally, melt detailed variables, cast with mean of variables, melt the means, and sort to create a tidy data set.
 
-```
+```{r}
 # Melt the raw variables into a tidy data set
 df.m_sub.melted <- melt(df.m_sub,id=c("subject_id", "activity_name"))
     

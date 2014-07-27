@@ -1,8 +1,8 @@
 Read Me
 ===========================================
-Coursera Data Science Specialization
-Getting & Cleaning Data
-Course Programming Assignment
+Coursera Data Science Specialization  
+Getting & Cleaning Data  
+Course Programming Assignment  
 July 27, 2014
 
 Introduction
@@ -24,14 +24,14 @@ The run_analysis.R script creates a single merged data set containing both the t
 
 The script uses the qdap package for the lookup() function reshape2 package for the melt() and dcast() functions
 
-```
+```{r}
 library(qdap)
-lhape2)
+library(reshape2)
 ```
 
 Set paths to training and test datasets (presumes the UCI HAR Dataset folder is in the working directory)
 
-```
+```{r}
 path <- paste(getwd(), "UCI HAR Dataset", sep="/")     
 path.train <- paste(path, "train", sep="/")
 path.test <- paste(path, "test", sep="/")
@@ -39,7 +39,7 @@ path.test <- paste(path, "test", sep="/")
 
 Prepare the variable column headers and clean up the variable names to work well with R processing.
 
-```
+```{r}
 # set up a row of column headers
 df.features <- t(read.table(paste(path, "features.txt", sep="/" ), sep=""))    
 df.features[2,] <- gsub("^t","time_",df.features[2,],ignore.case=T)
@@ -55,7 +55,7 @@ df.features[2,] <- gsub("^anglez","angle_Z_",df.features[2,],ignore.case=T)
     
 Assemble the training and test data sets first, including the cleaned up labels.  This results in two identically structure data sets, one caontaining the test data, and the other containing the training data.
 
-```
+```{r}
 # read the training datasets
 df.subj_train <- read.table(paste(path.train, "subject_train.txt", sep="/" ), sep="")
 df.y_train <- read.table(paste(path.train, "y_train.txt", sep="/" ), sep="")
@@ -81,7 +81,7 @@ names(df.m_test) <- c("subject_id", "activity_id", df.features[2,])
 
 Create the full merged data set using rbind(), then use the qdap lookup() function to replace activity identifiers with activity names.  Once the full data set is complete then subset out only the columns that contain "mean" or "std", and write the data set to a text file.
 
-```    
+```{r}    
 # Combine the test and training data frames into one
 df.m_all <- rbind(df.m_test, df.m_train)
     
@@ -103,7 +103,7 @@ write.csv(df.m_sub, "./UCI_HAR_Merged.txt", na = "NA", row.names=FALSE)
 
 Using the same subset, create a sorted tidy dataset with with the average of each variable for each activity for each subject.  This involves melting the data set, casting it back to wide format using the mean function, and then melting the data set again to put the averaged variables back into tidy format.  Also, the variable names for all of the "mean" and "std" variables are pre-pended with "avg_" for clarity.
 
-```
+```{r}
 # Melt the raw variables into a tidy data set
 df.m_sub.melted <- melt(df.m_sub,id=c("subject_id", "activity_name"))
     
