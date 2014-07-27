@@ -1,9 +1,7 @@
 Read Me
 ===========================================
-Coursera Data Science Specialization
-Getting & Cleaning Data
-Course Programming Assignment
-July 27, 2014
+Coursera Data Science Specialization - Getting & Cleaning Data
+
 
 Introduction
 ------------

@@ -1,21 +1,17 @@
 Code Book
-Getting & Cleaning Data - Course Assignment
 ========================================================
-Coursera Data Science Specialization
-Getting & Cleaning Data
-Course Programming Assignment
-July 27, 2014
+Coursera Data Science Specialization - Getting & Cleaning Data
 
 This code book describes the UCI HAR data sets and variables, as well as the cleansing and transformations performed on the data sets to create, cleansed, filter, merged and tidy data sets.  Please see the readme.Rmd file for description of the experiment and processing.
 
 Data was read from the following files:
 
--train/subject_train.txt    Contains the ids of the subjects who participated in the study
--train/X_train.txt          Contains 565 variables related to one study observation    
--train/Y_train.txt          Contains the ids of which tasks were performed for each observation
--test/subject_test.txt      Contents are the same as corresponding files above.
--test/X_test.txt
--test/Y_test.txt
+- train/subject_train.txt    Contains the ids of the subjects who participated in the study
+- train/X_train.txt          Contains 565 variables related to one study observation    
+- train/Y_train.txt          Contains the ids of which tasks were performed for each observation
+- test/subject_test.txt      Contents are the same as corresponding files above.
+- test/X_test.txt
+- test/Y_test.txt
 
 Data from the Intertial Signals folders for test and traing were not used.
 
